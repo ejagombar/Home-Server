@@ -1,0 +1,39 @@
+Following the https://docs.k3s.io/installation/requirements?os=rhel guide
+
+1. Disable firewall: sudo systemctl disable firewalld --now
+2. Add DNS (not set up for some reason): sudo vim /etc/systemd/resolved.conf
+3. Ammend the file and restart the server
+
+4. Install k3s on the ant1: curl -sfL https://get.k3s.io | sh -s - server --disable traefik --disable servicelb --write-kubeconfig-mode 644 --node-name ant1-master
+
+5. Get the token: sudo cat /var/lib/rancher/k3s/server/node-token
+
+6. Install k3s as agent on ant2, 3 and 4444:
+curl -sfL https://get.k3s.io | sh -s - agent --server https://<server ip>:6443 --node-name ant<node number>-agent --token <token>
+
+
+9. Running `kubectl get nodes` on the server node should show all 4 nodes
+
+NAME          STATUS   ROLES                  AGE     VERSION
+ant1-master   Ready    control-plane,master   4m46s   v1.28.5+k3s1
+ant2-agent    Ready    <none>                 2m13s   v1.28.5+k3s1
+ant3-agent    Ready    <none>                 64s     v1.28.5+k3s1
+ant4-agent    Ready    <none>                 19s     v1.28.5+k3s1
+
+
+10. Install KubeCtl on local machine: curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+11. To all your local machine to connect to the cluster, you need the kubeconfig file. You can get it from a server node: sudo cat /etc/rancher/k3s/k3s.yaml
+
+12. Copy this file to your local machine and place it in ~/.kube/<filename>.yaml
+
+13. Then run export KUBECONFIG=~/.kube/<filename>.yaml on your local machine
+
+14. You should now be able to run `kubectl get nodes` on your local machine to see the nodes
+
+
+
+Continue where left off
+https://docs.k3s.io/datastore/ha-embedded?_highlight=cluster&_highlight=init#existing-single-node-clusters
+https://www.fullstaq.com/knowledge-hub/blogs/setting-up-your-own-k3s-home-cluster
+https://gitlab.com/cloud-versity/rancher-k3s-first-steps
