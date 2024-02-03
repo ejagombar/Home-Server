@@ -1,0 +1,5 @@
+1. Go to https://www.proxmox.com/en/downloads and download the latest .iso file
+2. Flash image to USB stick using Balena Etcher or Rufus
+3. Install image on each server:
+    3.1. FQDN can be something like: ant1.local
+4. 
