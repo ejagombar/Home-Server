@@ -17,6 +17,7 @@ See my notes in the Proxmox folder
 ### 3D CAD Model
 
 <img width="400" alt="CAD Model" src="https://github.com/ejagombar/Home-Server/assets/77460324/6ac6d760-fa49-4b5b-a36e-795dc50c48d5">
+
 Designed in Fusion 360
 
 ### Final Construction
