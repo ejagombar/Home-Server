@@ -16,7 +16,7 @@ A breif overview of how Proxmox was setup and configured.
 Documentation as to how the my Spanner website was deployed on the server.
 
 ---
-#### [Kubernetes Notes](/K3S/Overview.md)
+#### [Kubernetes Notes](/K3s/Overview.md)
 Although I switched from K3S to Proxmox, I made some notes about the setup proccess which will come in use if I decide to try out again.
 
 ---
