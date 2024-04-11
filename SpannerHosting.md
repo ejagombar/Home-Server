@@ -53,16 +53,18 @@ Now that this works, the server needs to run in the background, and on startup o
 
 - Here is the `spanner.ini` config file for the backend:
 
-        #/etc/supervisor/conf.d/myapp.conf
+    ```
+    #/etc/supervisor/conf.d/myapp.conf
 
-        [program:spannerbackend]
-        directory=/home/spanner/SpannerBackend
-        command=/home/spanner/SpannerBackend/main
-        autostart=true
-        autorestart=true
-        stderr_logfile=/var/log/myapp.err
-        stdout_logfile=/var/log/myapp.log
-        environment=GOPATH="/root/gocode"
+    [program:spannerbackend]
+    directory=/home/spanner/SpannerBackend
+    command=/home/spanner/SpannerBackend/main
+    autostart=true
+    autorestart=true
+    stderr_logfile=/var/log/myapp.err
+    stdout_logfile=/var/log/myapp.log
+    environment=GOPATH="/root/gocode"
+    ```
 
  - Supervisor could then be restarted to load the config `supervisorctl reload`
 
@@ -157,15 +159,18 @@ server {
 }
 ```
 
-<!-- ## ssh-keygen stuff -->
-<!---->
-<!-- 1) ssh-keygen -t ecdsa on local machine  -->
-<!-- 2) name it as localmachine_to_remote_id_ecdsa -->
-<!-- 3) scp copy the .pub file to the remote in the ~/.ssh/ dir -->
-<!-- 4) logon to remote and append the file to autorized_keys which is in .ssh -->
-<!-- 5) on loca machine, add to config file: example below -->
-<!---->
-<!-- Host spanner -->
-<!--     HostName spanner.eagombar.uk -->
-<!--     User spanner -->
-<!--     IdentityFile ~/.ssh/chip_to_spanner_id_ecdsa -->
+## Sidenote: SSH keygen stuff
+Usefule notes for setting up passwordless SSH again.
+
+1) Run `ssh-keygen -t ecdsa` on local machine 
+2) Name it as localmachine_to_remote_id_ecdsa
+3) `scp` copy the .pub file to the remote in the ~/.ssh/ dir
+4) Logon to remote and append the file to autorized_keys which is in .ssh
+5) On the local machine, add to config file:
+
+    ```
+    Host spanner
+        HostName spanner.eagombar.uk
+        User spanner
+        IdentityFile ~/.ssh/chip_to_spanner_id_ecdsa
+    ```
