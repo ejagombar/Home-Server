@@ -1,26 +1,42 @@
 # Home-Server
+#### A collection of notes, tutorials and documentation relating to my home server.
 
-A log of my home server build process and setup.
-I am keeeping a log of the things that I try, so that I am able to refer back to them later If I change something.
+I wanted to keep track of the things that I am doing on my home server so I have documentation to refer back to, in case I ever need it. I also hope that it will help me better learn the tools that I am using by making tutorials and notes about them.
 
-### Software Choice
+---
+#### [Server Hardware Overview](/Hardware/Overview.md)
+An overview of the hardware used in the project, as well as how the server case was designed and built. 
 
-#### Fedora Server + K3S
+--- 
+#### [Proxmox Notes](/Proxmox/Overview.md)
+A breif overview of how Proxmox was setup and configured.
 
-I decided to use K3S as I wanted to learn how to manage my own cluster. It would also allow me to create a HA server.
-Some of the notes of setting up K3S can be found in the K3S folder. However, I have decided to switch to proxmox for the time being as it is much simpler to use. Once I have a better understanding of that, then I will hopefully move back to Kubernetes.
+---
+#### [Spanner Website Deployment](/Spanner/Overview.md)
+Documentation as to how the my Spanner website was deployed on the server.
 
-#### Proxmox
+---
+#### [Kubernetes Notes](/K3S/OvervieSpannerHostingw.md)
+Although I switched from K3S to Proxmox, I made some notes about the setup proccess which will come in use if I decide to try out again.
 
-See my notes in the Proxmox folder
+---
+<img alt="CAD Model" src="https://github.com/ejagombar/Home-Server/assets/77460324/4a577eb5-c9d9-4799-8d9f-99b6f7585340">
 
-### 3D CAD Model
+<!-- #### Fedora Server + K3S -->
+<!---->
+<!-- I decided to use K3S as I wanted to learn how to manage my own cluster. It would also allow me to create a HA server. -->
+<!-- Some of the notes of setting up K3S can be found in the K3S folder. However, I have decided to switch to proxmox for the time being as it is much simpler to use. Once I have a better understanding of that, then I will hopefully move back to Kubernetes. -->
+<!---->
+<!-- #### Proxmox -->
+<!---->
+<!-- See my notes in the Proxmox folder -->
+<!---->
+<!-- ### 3D CAD Model -->
+<!---->
+<!-- <img width="400" alt="CAD Model" src="https://github.com/ejagombar/Home-Server/assets/77460324/6ac6d760-fa49-4b5b-a36e-795dc50c48d5"> -->
+<!---->
+<!-- Designed in Fusion 360 -->
+<!---->
+<!-- ### Final Construction -->
 
-<img width="400" alt="CAD Model" src="https://github.com/ejagombar/Home-Server/assets/77460324/6ac6d760-fa49-4b5b-a36e-795dc50c48d5">
-
-Designed in Fusion 360
-
-### Final Construction
-
-<img width="400" alt="CAD Model" src="https://github.com/ejagombar/Home-Server/assets/77460324/4a577eb5-c9d9-4799-8d9f-99b6f7585340">
-<img width="400" alt="CAD Model" src="https://github.com/ejagombar/Home-Server/assets/77460324/8567ee06-8566-435c-ad37-75f6b9757808">
+<!-- <img width="400" alt="CAD Model" src="https://github.com/ejagombar/Home-Server/assets/77460324/8567ee06-8566-435c-ad37-75f6b9757808"> -->
