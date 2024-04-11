@@ -8,6 +8,6 @@ So far I have deployed several services on my server, using a mixture of Linux C
 - WireGuard VPN - to allow remote access to my home network.
 - Go UDP Server - as prt of my Gesture Controlled Hand Project.
 - NGINX-RTMP Video Streaming Server - as prt of my Gesture Controlled Hand Project.
-- Spanner Website - Deployed my website locally. For more info see [here](/Spanner/overview.md).
+- Spanner Website - Deployed my website locally. For more info see [here](/Spanner/Overview.md).
 
 
