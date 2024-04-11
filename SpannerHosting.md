@@ -45,29 +45,45 @@ Looks good!
 ### Running as a Process
 Now that this works, the server needs to run in the background, and on startup of the server. It should also restart if the server crashes. To do this, I followed [this](https://medium.com/@monirz/deploy-golang-app-in-5-minutes-ff354954fa8e) tutorial, however I came across some differences when using Fedora so I shall document my process here.
 
-As i am on fedora, not ubuntu, I had to run:
+- Install Supervisor `dnf install supervisor`
 
-sudo groupadd --system supervisor
+- Add Supervisor to the system usergroup `groupadd --system supervisor`
 
-sudo vim /etc/supervisord.d/spanner.ini
+- Create Supervisor config file `vim /etc/supervisord.d/spanner.ini`
 
-service supervisord start
-for some reason i had to manually start supervisord
+- Here is the `spanner.ini` config file for the backend:
 
-sudo supervisorctl status
+        #/etc/supervisor/conf.d/myapp.conf
 
-To ensure supervisord starts on reboot, I used:
-systemctl enable supervisord.service
-systemctl start supervisord.service
+        [program:spannerbackend]
+        directory=/home/spanner/SpannerBackend
+        command=/home/spanner/SpannerBackend/main
+        autostart=true
+        autorestart=true
+        stderr_logfile=/var/log/myapp.err
+        stdout_logfile=/var/log/myapp.log
+        environment=GOPATH="/root/gocode"
 
+ - Supervisor could then be restarted to load the config `supervisorctl reload`
 
+ - The status of Supervisor can be checked with `supervisorctl status` and if everything is working properly, it should show something like this:
+
+        spannerbackend                   RUNNING   pid 5344, uptime 3 days, 8:29:59
+
+For some reason, on my system I had to manually start supervisord. To fix this, and to ensure that supervisord starts auitomatically on reboot, I used:
+
+- `systemctl enable supervisord.service` which ensures that systemd starts supervisord on boot. 
+
+- `systemctl start supervisord.service` which starts the service now.
+
+## Setting up the Frontend
 
 after much debugging, i had to disable selinux
 sudo vim /etc/selinux/
 and changing the config file to disabled
 
 
-# ssh-keygen stuff
+## ssh-keygen stuff
 
 1) ssh-keygen -t ecdsa on local machine 
 2) name it as localmachine_to_remote_id_ecdsa
