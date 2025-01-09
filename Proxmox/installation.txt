@@ -2,4 +2,7 @@
 2. Flash image to USB stick using Balena Etcher or Rufus
 3. Install image on each server:
     3.1. FQDN can be something like: ant1.local
-4. 
+4. After installation, login to the web interface using the IP address of the server and the port 8006
+5. Update the server:
+    5.1. go to updates - repositories, disable enterprise repositories and add the no-subscription repository
+    5.2. go to updates - update, click on refresh and then update
